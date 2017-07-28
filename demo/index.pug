@@ -1,0 +1,102 @@
+html
+    head
+        link(rel="stylesheet" href="/semantic-ui.css")
+        script(type="text/javascript" src="https://js.tappaysdk.com/tpdirect/v2_2_1")
+
+        if APP_ID
+            script(type="text/javascript").
+                TPDirect.setupSDK(#{APP_ID}, '#{APP_KEY}', '#{ENV}')
+    body
+
+        .ui.grid.centered.stackable.doubling
+            .six.wide.column
+                br
+                br
+                h4.ui.header Card View
+                div.ui.message(id="cardview-container")
+                button.ui.button(type="button", onclick="getPrime()", id="submit-button") Submit
+                button.ui.button(type="button", onclick="pay()", id="pay-button") Pay
+                button.ui.button(type="button", onclick="refund()", id="refund-button") Refund
+                div.ui.message
+                    | rectradeid:
+                    br
+                    #rectradeid(style="word-wrap: break-word")
+                div.ui.message#result(style="word-wrap: break-word")
+
+
+        script.
+            var defaultCardViewStyle = {
+                color: 'rgb(0,0,0)',
+                fontSize: '15px',
+                lineHeight: '24px',
+                fontWeight: '300',
+                errorColor: 'red',
+                placeholderColor: ''
+            }
+            TPDirect.card.setup('#cardview-container', defaultCardViewStyle)
+            TPDirect.card.onUpdate(function (update) {
+                var submitButton = document.getElementById('submit-button'),
+                    cardViewContainer = document.getElementById('cardview-container');
+
+                if (update.canGetPrime) {
+                    submitButton.removeAttribute('disabled')
+                } else {
+                    submitButton.setAttribute('disabled', true)
+                }
+
+                if (update.hasError) {
+                    cardViewContainer.classList.add('error')
+                } else {
+                    cardViewContainer.classList.remove('error')
+                }
+
+                if (update.status.number) {
+                    console.log('請檢查您的信用卡號碼')
+                } else {
+                    console.log()
+                }
+            })
+            function getPrime() {
+                TPDirect.card.getPrime(function(result) {
+                    if (result.status !== 0) {
+                        console.error('getPrime 錯誤')
+                        return
+                    }
+                    var data = result.card,
+                        parsed_data = ""
+                    for (var key in data) {
+                        parsed_data += key + ": <br><span id='" + key + "'>" + data[key] + "</span><br><br>"
+                    }
+                    document.getElementById('result').innerHTML = parsed_data
+                })
+            }
+            function pay() {
+                var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+                xmlhttp.open("POST", "/pay");
+                xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                xmlhttp.send(JSON.stringify({ prime: document.getElementById('prime').innerHTML}))
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+                        let rectradeid = JSON.parse(xmlhttp.responseText).rectradeid
+                        document.getElementById('rectradeid').innerHTML = rectradeid
+                    }
+                }
+            }
+            function refund() {
+                var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+                xmlhttp.open("POST", "/refund");
+                xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                xmlhttp.send(JSON.stringify({ rectradeid: document.getElementById('rectradeid').innerHTML}))
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+                        let result = JSON.parse(xmlhttp.responseText)
+                        if (result.status === 0) {
+                            alert('Success')
+                            document.getElementById('result').innerHTML = ''
+                            document.getElementById('rectradeid').innerHTML = ''
+                        } else {
+                            alert('Failed')
+                        }
+                    }
+                }
+            }

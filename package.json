@@ -1,0 +1,31 @@
+{
+  "name": "tappay-nodejs",
+  "version": "1.0.0",
+  "description": "TapPay Backend SDK",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon ./demo/app.js",
+    "webpack": "webpack",
+    "build": "babel lib -d build --presets es2015,stage-2 && webpack",
+    "bw": "babel --watch lib -d build --presets es2015,stage-2",
+    "ww": "webpack --watch"
+  },
+  "author": "TapPay",
+  "license": "TapPay",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "pug": "^2.0.0-rc.2",
+    "request": "^2.81.0",
+    "superagent": "^3.5.2",
+    "webpack": "^3.4.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1"
+  }
+}

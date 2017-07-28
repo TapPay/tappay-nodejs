@@ -1,0 +1,49 @@
+{
+    "globals": {
+        "appRoot": false,
+        "$": false
+    },
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended"
+    ],
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "rules": {
+        "arrow-parens": ["error", "always"],
+        "indent": [
+            "error",
+            4
+        ],
+        "no-console": 0,
+        "no-empty": 2,
+        "quotes": "off",
+        "consistent-return": 0,
+        "eqeqeq": [2, "allow-null"],
+        "keyword-spacing": ["error", { "before": true }],
+        "no-else-return": 0,
+        "no-proto": 2,
+        "array-bracket-spacing": [2, "never"],
+        "brace-style": [2, "1tbs"],
+        "comma-spacing": [2, {
+            "before": false,
+            "after": true
+        }],
+        "comma-style": [2, "last"],
+        "linebreak-style": "off",
+        "camelcase": "off",
+        "semi": [
+            "error",
+            "never"
+        ],
+        "no-unused-vars": "warn",
+        "no-multiple-empty-lines": [1, {
+            "max": 2
+        }]
+    }
+}
