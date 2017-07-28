@@ -1,5 +1,8 @@
 # Support Node Versions
 Node 4 or later is required
+```
+npm install tappay-nodejs
+```
 
 # Demo Website
 Please put the app_id, app_key, environment, partner_key, merchant_id into process.env.js before running the demo website.
