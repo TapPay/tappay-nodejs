@@ -1,6 +1,6 @@
 {
   "name": "tappay-nodejs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TapPay Backend SDK",
   "main": "index.js",
   "scripts": {
@@ -11,14 +11,12 @@
     "ww": "webpack --watch"
   },
   "author": "TapPay",
-  "license": "TapPay",
+  "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "pug": "^2.0.0-rc.2",
-    "request": "^2.81.0",
-    "superagent": "^3.5.2",
-    "webpack": "^3.4.1"
+    "superagent": "^3.5.2"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -26,6 +24,21 @@
     "babel-preset-stage-2": "^6.24.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
-    "gulp-concat": "^2.6.1"
-  }
+    "gulp-concat": "^2.6.1",
+    "webpack": "^3.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TapPay/tappay-nodejs.git"
+  },
+  "keywords": [
+    "TapPay",
+    "payment",
+    "nodejs",
+    "sdk"
+  ],
+  "bugs": {
+    "url": "https://github.com/TapPay/tappay-nodejs/issues"
+  },
+  "homepage": "https://github.com/TapPay/tappay-nodejs#readme"
 }
