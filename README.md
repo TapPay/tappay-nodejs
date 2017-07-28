@@ -12,7 +12,7 @@ node app.js
 # How to use
 
 ### Direct Pay - Pay By Prime
-```
+```javascript
 const TapPay = require('tappay-nodejs')
 
 // You just need to initilize the config once.
@@ -54,7 +54,7 @@ TapPay.DirectPay.payByPrime(payment_info).then((response) => {
 ```
 
 ### Refund
-```
+```javascript
 const TapPay = require('tappay-nodejs')
 
 // You just need to initilize the config once.
