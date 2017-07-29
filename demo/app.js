@@ -5,6 +5,7 @@ const path = require('path')
 const app = express()
 const bodyParse = require('body-parser')
 const TapPay = require('../index.js')
+
 TapPay.initialize({
     api_key: process.env.PARTNER_KEY,
     environment: process.env.ENV

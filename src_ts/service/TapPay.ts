@@ -1,7 +1,9 @@
-import configuration from '../configuration.js'
+/// <reference path="../index.d.ts"/>
+
+import configuration from '../configuration'
 import TapPayFactor from '../factor/TapPayFactor.js'
 
-const initialize = (data) => {
+const initialize = (data: InitialData): void => {
     if (data.environment !== 'sandbox' && data.environment !== 'production') {
         throw new Error('Enviroment does\'t match')
     }
@@ -9,7 +11,7 @@ const initialize = (data) => {
     configuration.environment =  data.environment
 }
 
-export default () => {
+export default (): object => {
     return {
         initialize: initialize,
         refund: TapPayFactor('Refund').refund,

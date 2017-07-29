@@ -7,8 +7,10 @@
     "test": "nodemon ./demo/app.js",
     "webpack": "webpack",
     "build": "babel lib -d build --presets es2015,stage-2 && webpack",
+    "buildtsc": "tsc ./src/*/* --outDir build_ts",
     "bw": "babel --watch lib -d build --presets es2015,stage-2",
-    "ww": "webpack --watch"
+    "ww": "webpack --watch",
+    "tscw": "tsc ./src/*/* --outDir build_ts --watch"
   },
   "author": "TapPay",
   "license": "SEE LICENSE IN LICENSE",

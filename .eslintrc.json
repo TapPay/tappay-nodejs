@@ -37,10 +37,6 @@
         "comma-style": [2, "last"],
         "linebreak-style": "off",
         "camelcase": "off",
-        "semi": [
-            "error",
-            "never"
-        ],
         "no-unused-vars": "warn",
         "no-multiple-empty-lines": [1, {
             "max": 2

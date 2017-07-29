@@ -71,7 +71,10 @@ module.exports =
 "use strict";
 
 
-module.exports = {
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
     api_key: '',
     environment: ''
 };
@@ -82,6 +85,10 @@ module.exports = {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
 var _configuration = __webpack_require__(0);
 
@@ -101,7 +108,7 @@ var initialize = function initialize(data) {
     _configuration2.default.environment = data.environment;
 };
 
-module.exports = function () {
+exports.default = function () {
     return {
         initialize: initialize,
         refund: (0, _TapPayFactor2.default)('Refund').refund,
@@ -119,6 +126,10 @@ module.exports = function () {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
 var _TapPayRequest = __webpack_require__(3);
 
@@ -159,7 +170,7 @@ var FACTOR_TABLE = {
     'AndroidPay': _AndroidPay2.default
 };
 
-module.exports = function (type) {
+exports.default = function (type) {
     // Inject request into factor
     if (type in FACTOR_TABLE) return FACTOR_TABLE[type](_TapPayRequest2.default);else throw new Error('TapPay factor type does\'t match');
 };
@@ -170,6 +181,10 @@ module.exports = function (type) {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
 var _superagent = __webpack_require__(4);
 
@@ -232,7 +247,7 @@ TapPayRequest.capTody = function (data, callback) {
     return request('/tpc/partner/captoday', data, callback);
 };
 
-module.exports = TapPayRequest;
+exports.default = TapPayRequest;
 
 /***/ }),
 /* 4 */
@@ -247,7 +262,11 @@ module.exports = require("superagent");
 "use strict";
 
 
-module.exports = function (request) {
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function (request) {
     return {
         payByPrime: function payByPrime(data, callback) {
             return request.payByPrime(data, callback);
@@ -262,7 +281,11 @@ module.exports = function (request) {
 "use strict";
 
 
-module.exports = function (request) {
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function (request) {
     return {
         refund: function refund(data, callback) {
             return request.refund(data, callback);
@@ -277,7 +300,11 @@ module.exports = function (request) {
 "use strict";
 
 
-module.exports = function (request) {
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function (request) {
     return {
         getRecords: function getRecords(data, callback) {
             return request.getRecords(data, callback);
@@ -292,7 +319,11 @@ module.exports = function (request) {
 "use strict";
 
 
-module.exports = function (request) {
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function (request) {
     return {
         capToday: function capToday(data, callback) {
             return request.capToday(data, callback);
@@ -307,7 +338,11 @@ module.exports = function (request) {
 "use strict";
 
 
-module.exports = function (request) {
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function (request) {
     return {
         pay: function pay(data, callback) {
             return request.payByApplePay(data, callback);
@@ -322,7 +357,11 @@ module.exports = function (request) {
 "use strict";
 
 
-module.exports = function (request) {
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function (request) {
     return {
         pay: function pay(data, callback) {
             return request.payByAndroidPay(data, callback);

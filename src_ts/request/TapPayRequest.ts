@@ -1,9 +1,9 @@
-import superagent  from 'superagent'
-import configuration  from '../configuration.js'
+import * as superagent  from 'superagent'
+import configuration  from '../configuration'
 const SANDBOX = 'https://sandbox.tappayapis.com'
 const PROD = 'https://prod.tappayapis.com'
 
-const request = (url, data, callback = null) => {
+const request = (url: string, data, callback = null) => {
 
     // Put the api_key into body
     data['partnerkey'] = configuration.api_key
@@ -28,7 +28,7 @@ const request = (url, data, callback = null) => {
     }
 }
 
-const TapPayRequest = {}
+const TapPayRequest: any = {};
 
 TapPayRequest.payByPrime = (data, callback) => {
     return request('/tpc/partner/directpay/paybyprime', data, callback)   
