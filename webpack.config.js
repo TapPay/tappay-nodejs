@@ -12,7 +12,7 @@ fs.readdirSync('node_modules')
 
 module.exports = {
     target: 'node',
-    entry: './build/service/TapPay.js',
+    entry: './build/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'TapPay.js',
