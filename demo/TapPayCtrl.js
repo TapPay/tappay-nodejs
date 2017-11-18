@@ -3,27 +3,23 @@ const TapPay = require('../index.js')
 module.exports = {
     pay: (req, res) => {
         let data = {
-            "merchantid": process.env.MERCHANT_ID,
+            "merchant_id": process.env.MERCHANT_ID,
             "amount": 48,
             "currency": "TWD",
             "details": "An apple and a pen.",
             "cardholder": {
-                "phonenumber": "+886923456789",
+                "phone_number": "+886923456789",
                 "name": "王小明",
-                "email": "LittleMing@Wang.com",
-                "zip": "100",
-                "addr": "台北市天龍區芝麻街1號1樓",
-                "nationalid": "A123456789"
-            },
-            "instalment": 0,
-            "remember": false
+                "email": "LittleMing@Wang.com"
+            }
         }
         data['prime'] = req.body.prime
 
-        TapPay.DirectPay.payByPrime(data).then(function (response) {
+        TapPay.payByPrime(data).then(function (result) {
+            console.log(result);
             return res.json({
                 status: 0,
-                rectradeid: response.body.rectradeid
+                rec_trade_id: result.rec_trade_id
             })
         }).catch(function (error) {
             console.error(error)
@@ -34,10 +30,11 @@ module.exports = {
     },
     refund: (req, res) => {
         TapPay.refund({
-            rectradeid: req.body.rectradeid
-        }).then(function(response) {
+            rec_trade_id: req.body.rec_trade_id
+        }).then(function(result) {
+            console.log(result);
             return res.json({
-                status: response.body.status,
+                status: result.status,
             })
         }).catch(function(error) {
             console.error(error)

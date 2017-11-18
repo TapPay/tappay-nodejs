@@ -1,7 +1,7 @@
 html
     head
         link(rel="stylesheet" href="/semantic-ui.css")
-        script(type="text/javascript" src="https://js.tappaysdk.com/tpdirect/v2_2_1")
+        script(type="text/javascript" src="https://js.tappaysdk.com/tpdirect/v2_3_2")
 
         if APP_ID
             script(type="text/javascript").
@@ -14,7 +14,7 @@ html
                 br
                 h4.ui.header Card View
                 div.ui.message(id="cardview-container")
-                button.ui.button(type="button", onclick="getPrime()", id="submit-button") Submit
+                button.ui.button(type="button", onclick="getPrime()", id="submit-button") Get Prime
                 button.ui.button(type="button", onclick="pay()", id="pay-button") Pay
                 button.ui.button(type="button", onclick="refund()", id="refund-button") Refund
                 div.ui.message
@@ -77,8 +77,8 @@ html
                 xmlhttp.send(JSON.stringify({ prime: document.getElementById('prime').innerHTML}))
                 xmlhttp.onreadystatechange = function() {
                     if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-                        let rectradeid = JSON.parse(xmlhttp.responseText).rectradeid
-                        document.getElementById('rectradeid').innerHTML = rectradeid
+                        let rec_trade_id = JSON.parse(xmlhttp.responseText).rec_trade_id
+                        document.getElementById('rectradeid').innerHTML = rec_trade_id
                     }
                 }
             }
@@ -86,7 +86,7 @@ html
                 var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
                 xmlhttp.open("POST", "/refund");
                 xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-                xmlhttp.send(JSON.stringify({ rectradeid: document.getElementById('rectradeid').innerHTML}))
+                xmlhttp.send(JSON.stringify({ rec_trade_id: document.getElementById('rectradeid').innerHTML}))
                 xmlhttp.onreadystatechange = function() {
                     if (xmlhttp.readyState == XMLHttpRequest.DONE) {
                         let result = JSON.parse(xmlhttp.responseText)

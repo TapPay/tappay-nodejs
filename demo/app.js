@@ -7,8 +7,8 @@ const bodyParse = require('body-parser')
 const TapPay = require('../index.js')
 
 TapPay.initialize({
-    api_key: process.env.PARTNER_KEY,
-    environment: process.env.ENV
+    partner_key: process.env.PARTNER_KEY,
+    env: process.env.ENV
 })
 
 app.use(bodyParse.json())

@@ -1,3 +1,2 @@
-const TapPay = require('./dist/TapPay.js').default()
-
+const TapPay = require('./build/index.js').default()
 module.exports = TapPay

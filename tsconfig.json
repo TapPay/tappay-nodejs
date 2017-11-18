@@ -1,12 +1,27 @@
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
         "typeRoots": [
-            "../../node_modules/@types/"
-        ]
+            "node_modules/@types"
+        ],
+        "outDir": "build/",
+        "target": "es6",
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "paths": {
+            "*": [
+                "node_modules/*",
+                "node_modules/@types/*"
+            ]
+        }
     },
     "compileOnSave": true,
+    "include": [
+        "src/*",
+        "src/*/*",
+        "src/*/*/*"
+    ],
     "exclude": [
         "node_modules/*"
     ]
