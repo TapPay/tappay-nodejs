@@ -20,35 +20,30 @@ const TapPay = require('tappay-nodejs')
 
 // You just need to initilize the config once.
 TapPay.initialize({
-    api_key: your_api_key,
-    environment: 'sandbox' or 'production'
+    partner_key: your_api_key,
+    env: 'sandbox' or 'production'
 })
 
 const payment_info = {
     prime: 'your_prime',
-    merchantid: 'your_merchant_id',
+    merchant_id: 'your_merchant_id',
     amount: 1,
     currency: "TWD",
     details: "An apple and a pen.",
     cardholder: {
-        phonenumber: "+886923456789",
+        phone_number: "+886923456789",
         name: "王小明",
-        email: "LittleMing@Wang.com",
-        zip: "100",
-        addr: "台北市天龍區芝麻街1號1樓",
-        nationalid: "A123456789"
-    },
-    instalment: 0,
-    remember: false
+        email: "LittleMing@Wang.com"
+    }
 }
 
 // Callback Style
-TapPay.DirectPay.payByPrime(payment_info, (error, response) => {
+TapPay.payByPrime(payment_info, (error, response) => {
     console.log(error, response.body)
 })
 
 // Promise Style
-TapPay.DirectPay.payByPrime(payment_info).then((response) => {
+TapPay.payByPrime(payment_info).then((response) => {
     console.log(response.body)
 }).catch((error) => {
     console.log(error)
@@ -62,20 +57,20 @@ const TapPay = require('tappay-nodejs')
 
 // You just need to initilize the config once.
 TapPay.initialize({
-    api_key: your_api_key,
-    environment: 'sandbox' or 'production'
+    partner_key: your_api_key,
+    env: 'sandbox' or 'production'
 })
 
 // Callback Style
 TapPay.refund({
-    rectradeid: 'your_rectradeid'
+    rec_trade_id: 'your_rec_trade_id'
 }, (err, response) => {
     console.log(err, response.body)
 })
 
 // Promise Style
 TapPay.refund({
-    rectradeid: 'your_rectradeid'
+    rec_trade_id: 'your_rec_trade_id'
 }).then((response) => {
     console.log(response.body)
 }).catch((error) => {
