@@ -16,7 +16,7 @@ const makeRequest = (path: string, data: any, callback: any = null) => {
         return axios.post(path, data).then((response) => {
             callback(null, response.data)
         }).catch((error) => {
-            callback(null)
+            callback(error, null)
         })
     }
 

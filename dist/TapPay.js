@@ -129,7 +129,7 @@ const makeRequest = (path, data, callback = null) => {
         return axios_1.default.post(path, data).then((response) => {
             callback(null, response.data);
         }).catch((error) => {
-            callback(null);
+            callback(error, null);
         });
     }
     // promise style

@@ -1,12 +1,12 @@
 {
   "name": "tappay-nodejs",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "TapPay Backend SDK",
   "main": "index.js",
   "scripts": {
     "test": "nodemon ./demo/app.js",
     "webpack": "webpack",
-    "build": "babel lib -d build --presets es2015,stage-2 && webpack",
+    "build": "tsc -p . && webpack",
     "buildtsc": "tsc -p .",
     "bw": "babel --watch lib -d build --presets es2015,stage-2",
     "ww": "webpack --watch",
