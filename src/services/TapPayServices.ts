@@ -19,59 +19,59 @@ import {
 } from 'TapPayServices'
 
 // modules
-import axios from 'axios';
+import axios, {AxiosError} from 'axios';
 
 // .ts file
 import config from '../config';
 
-const makeRequest = (path: string, data: any, callback: any = null) => {
+const makeRequest = (path: string, data: any, callback: (error: AxiosError, result: object) => void = null): Promise<any> => {
     axios.defaults.baseURL = config.base_url;
     axios.defaults.headers.post['x-api-key'] = config.partner_key;
     axios.defaults.headers.post['Content-Type'] = 'application/json';
 
     data['partner_key'] = config.partner_key
 
-    // callback style
     if (callback !== null) {
-        return axios.post(path, data).then((response) => {
+        // callback style
+        axios.post(path, data).then((response) => {
             callback(null, response.data)
         }).catch((error) => {
             callback(error, null)
         })
+    } else {
+        // promise style
+        return axios.post(path, data).then(response => response.data).catch(error => error)
     }
-
-    // promise style
-    return axios.post(path, data).then(response => response.data).catch(error => error)
 }
 
-export const payByPrime = (data: PayByPrimeRequest, callback: any): Promise<PayByPrimeResponse> | void =>  {
-    return makeRequest('/tpc/payment/pay-by-prime', data)
+export const payByPrime = (data: PayByPrimeRequest, callback?: (error: AxiosError, result: PayByPrimeResponse) => void): Promise<PayByPrimeResponse> => {
+    return makeRequest('/tpc/payment/pay-by-prime', data, callback)
 }
 
-export const payByToken = (data: PayByTokenRequest, callback: any): Promise<PayByTokenResponse> | void =>  {
-    return makeRequest('/tpc/payment/pay-by-token', data)
+export const payByToken = (data: PayByTokenRequest, callback?: (error: AxiosError, result: PayByTokenResponse) => void): Promise<PayByTokenResponse> =>  {
+    return makeRequest('/tpc/payment/pay-by-token', data, callback)
 }
 
-export const refund = (data: RefundRequest, callback: any): Promise<RefundResponse> | void =>  {
-    return makeRequest('/tpc/transaction/refund', data)
+export const refund = (data: RefundRequest, callback?: (error: AxiosError, result: RefundResponse) => void): Promise<RefundResponse> =>  {
+    return makeRequest('/tpc/transaction/refund', data, callback)
 }
 
-export const getRecords = (data: GetRecordsRequest, callback: any): Promise<GetRecordsResponse> | void =>  {
-    return makeRequest('/tpc/transaction/query', data)
+export const getRecords = (data: GetRecordsRequest, callback?: (error: AxiosError, result: GetRecordsResponse) => void): Promise<GetRecordsResponse> =>  {
+    return makeRequest('/tpc/transaction/query', data, callback)
 }
 
-export const getRecordHistory = (data: GetRecordHistoryRequest, callback: any): Promise<GetRecordHistoryResponse> | void =>  {
-    return makeRequest('/tpc/transaction/trade-history', data)
+export const getRecordHistory = (data: GetRecordHistoryRequest, callback?: (error: AxiosError, result: GetRecordHistoryResponse) => void): Promise<GetRecordHistoryResponse> =>  {
+    return makeRequest('/tpc/transaction/trade-history', data, callback)
 }
 
-export const capToday = (data: CapTodayRequest, callback: any): Promise<CapTodayResponse> | void =>  {
-    return makeRequest('/tpc/transaction/cap', data)
+export const capToday = (data: CapTodayRequest, callback?: (error: AxiosError, result: CapTodayResponse) => void): Promise<CapTodayResponse> =>  {
+    return makeRequest('/tpc/transaction/cap', data, callback)
 }
 
-export const bindCard = (data: BindCardRequest, callback: any): Promise<BindCardResponse> | void =>  {
-    return makeRequest('/tpc/card/bind', data)
+export const bindCard = (data: BindCardRequest, callback?: (error: AxiosError, result: BindCardResponse) => void): Promise<BindCardResponse> =>  {
+    return makeRequest('/tpc/card/bind', data, callback)
 }
 
-export const removeCard = (data: RemoveCardRequest, callback: any): Promise<RemoveCardResponse> | void =>  {
-    return makeRequest('/tpc/card/remove', data)
+export const removeCard = (data: RemoveCardRequest, callback?: (error: AxiosError, result: RemoveCardResponse) => void): Promise<RemoveCardResponse> =>  {
+    return makeRequest('/tpc/card/remove', data, callback)
 }

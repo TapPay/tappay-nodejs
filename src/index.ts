@@ -22,16 +22,15 @@ const initialize = ({partner_key, env}: InitialData) => {
     config.base_url = (env === 'sandbox') ? SANDBOX : PROD
 }
 
-export default ():object => {
-    return {
-        initialize,
-        payByPrime,
-        payByToken,
-        refund,
-        getRecords,
-        getRecordHistory,
-        capToday,
-        bindCard,
-        removeCard
-    }
+
+export default {
+    initialize,
+    payByPrime,
+    payByToken,
+    refund,
+    getRecords,
+    getRecordHistory,
+    capToday,
+    bindCard,
+    removeCard
 }

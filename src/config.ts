@@ -1,6 +1,6 @@
-import {InitialData} from 'config';
+import {InitialData, Data} from 'config';
 
-let config: InitialData = {
+let config: Data = {
     partner_key: '',
     env: '',
     base_url: ''
