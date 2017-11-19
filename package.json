@@ -1,6 +1,6 @@
 {
   "name": "tappay-nodejs",
-  "version": "2.0.6",
+  "version": "2.0.8",
   "description": "TapPay Backend SDK",
   "main": "index.js",
   "scripts": {

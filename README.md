@@ -162,7 +162,7 @@ TapPay.capToday({
 ```javascript
 // Callback Style
 TapPay.bindCard({
-    prime: "your_prime,
+    prime: "your_prime",
     merchant_id: "merchantA",
     currency: "TWD",
     cardholder: {
@@ -179,7 +179,7 @@ TapPay.bindCard({
 
 // Promise Style
 TapPay.bindCard({
-    prime: "your_prime,
+    prime: "your_prime",
     merchant_id: "merchantA",
     currency: "TWD",
     cardholder: {
