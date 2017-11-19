@@ -139,3 +139,80 @@ TapPay.getRecordHistory({
     console.log(error)
 })
 ```
+
+### Cap Today
+```javascript
+// Callback Style
+TapPay.capToday({
+    rec_trade_id: 'your_rec_trade_id'
+}, (err, result) => {
+    console.log(err, result)
+})
+
+// Promise Style
+TapPay.capToday({
+    rec_trade_id: 'your_rec_trade_id'
+}).then((result) => {
+    console.log(result)
+}).catch((error) => {
+    console.log(error)
+})
+```
+### Bind Card
+```javascript
+// Callback Style
+TapPay.bindCard({
+    prime: "your_prime,
+    merchant_id: "merchantA",
+    currency: "TWD",
+    cardholder: {
+        phone_number: "+886923456789",
+        name: "Jane Doe",
+        email: "Jane@Doe.com",
+        zip_code: "12345",
+        address: "123 1st Avenue, City, Country",
+        national_id: "A123456789"
+    }
+}, (err, result) => {
+    console.log(err, result)
+})
+
+// Promise Style
+TapPay.bindCard({
+    prime: "your_prime,
+    merchant_id: "merchantA",
+    currency: "TWD",
+    cardholder: {
+        phone_number: "+886923456789",
+        name: "Jane Doe",
+        email: "Jane@Doe.com",
+        zip_code: "12345",
+        address: "123 1st Avenue, City, Country",
+        national_id: "A123456789"
+    }
+}).then((result) => {
+    console.log(result)
+}).catch((error) => {
+    console.log(error)
+})
+```
+### Remove Card
+```javascript
+// Callback Style
+TapPay.removeCard({
+    card_key: "your_card_key",
+    card_token: "your_card_token"
+}, (err, result) => {
+    console.log(err, result)
+})
+
+// Promise Style
+TapPay.removeCard({
+    card_key: "your_card_key",
+    card_token: "your_card_token"
+}).then((result) => {
+    console.log(result)
+}).catch((error) => {
+    console.log(error)
+})
+```

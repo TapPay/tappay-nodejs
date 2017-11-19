@@ -3,7 +3,16 @@ import {InitialData} from 'config';
 
 // .ts files
 import config from './config'
-import TapPayServices from './services/TapPayServices'
+import {
+    payByPrime,
+    payByToken,
+    refund,
+    getRecords,
+    getRecordHistory,
+    capToday,
+    bindCard,
+    removeCard
+} from './services/TapPayServices'
 const SANDBOX = "https://sandbox.tappayapis.com";
 const PROD = "https://prod.tappayapis.com";
 
@@ -16,10 +25,13 @@ const initialize = ({partner_key, env}: InitialData) => {
 export default ():object => {
     return {
         initialize,
-        payByPrime: TapPayServices().payByPrime,
-        payByToken: TapPayServices().payByToken,
-        refund: TapPayServices().refund,
-        getRecords: TapPayServices().getRecords,
-        getRecordHistory: TapPayServices().getRecordHistory,
+        payByPrime,
+        payByToken,
+        refund,
+        getRecords,
+        getRecordHistory,
+        capToday,
+        bindCard,
+        removeCard
     }
 }

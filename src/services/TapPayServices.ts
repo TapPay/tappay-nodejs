@@ -1,3 +1,23 @@
+// .d.ts file
+import {
+    PayByPrimeRequest,
+    PayByPrimeResponse,
+    PayByTokenRequest,
+    PayByTokenResponse,
+    GetRecordsRequest,
+    GetRecordsResponse,
+    GetRecordHistoryRequest,
+    GetRecordHistoryResponse,
+    RefundRequest,
+    RefundResponse,
+    CapTodayRequest,
+    CapTodayResponse,
+    BindCardRequest,
+    BindCardResponse,
+    RemoveCardRequest,
+    RemoveCardResponse,
+} from 'TapPayServices'
+
 // modules
 import axios from 'axios';
 
@@ -24,32 +44,34 @@ const makeRequest = (path: string, data: any, callback: any = null) => {
     return axios.post(path, data).then(response => response.data).catch(error => error)
 }
 
-const payByPrime = (data: object, callback: any): Promise<any> | void =>  {
+export const payByPrime = (data: PayByPrimeRequest, callback: any): Promise<PayByPrimeResponse> | void =>  {
     return makeRequest('/tpc/payment/pay-by-prime', data)
 }
 
-const payByToken = (data: object, callback: any): Promise<any> | void =>  {
+export const payByToken = (data: PayByTokenRequest, callback: any): Promise<PayByTokenResponse> | void =>  {
     return makeRequest('/tpc/payment/pay-by-token', data)
 }
 
-const refund = (data: object, callback: any): Promise<any> | void =>  {
+export const refund = (data: RefundRequest, callback: any): Promise<RefundResponse> | void =>  {
     return makeRequest('/tpc/transaction/refund', data)
 }
 
-const getRecords = (data: object, callback: any): Promise<any> | void =>  {
+export const getRecords = (data: GetRecordsRequest, callback: any): Promise<GetRecordsResponse> | void =>  {
     return makeRequest('/tpc/transaction/query', data)
 }
 
-const getRecordHistory = (data: object, callback: any): Promise<any> | void =>  {
+export const getRecordHistory = (data: GetRecordHistoryRequest, callback: any): Promise<GetRecordHistoryResponse> | void =>  {
     return makeRequest('/tpc/transaction/trade-history', data)
 }
 
-export default () => {
-    return {
-        payByPrime,
-        payByToken,
-        refund,
-        getRecords,
-        getRecordHistory
-    }
+export const capToday = (data: CapTodayRequest, callback: any): Promise<CapTodayResponse> | void =>  {
+    return makeRequest('/tpc/transaction/cap', data)
+}
+
+export const bindCard = (data: BindCardRequest, callback: any): Promise<BindCardResponse> | void =>  {
+    return makeRequest('/tpc/card/bind', data)
+}
+
+export const removeCard = (data: RemoveCardRequest, callback: any): Promise<RemoveCardResponse> | void =>  {
+    return makeRequest('/tpc/card/remove', data)
 }

@@ -99,11 +99,14 @@ const initialize = ({ partner_key, env }) => {
 exports.default = () => {
     return {
         initialize,
-        payByPrime: TapPayServices_1.default().payByPrime,
-        payByToken: TapPayServices_1.default().payByToken,
-        refund: TapPayServices_1.default().refund,
-        getRecords: TapPayServices_1.default().getRecords,
-        getRecordHistory: TapPayServices_1.default().getRecordHistory,
+        payByPrime: TapPayServices_1.payByPrime,
+        payByToken: TapPayServices_1.payByToken,
+        refund: TapPayServices_1.refund,
+        getRecords: TapPayServices_1.getRecords,
+        getRecordHistory: TapPayServices_1.getRecordHistory,
+        capToday: TapPayServices_1.capToday,
+        bindCard: TapPayServices_1.bindCard,
+        removeCard: TapPayServices_1.removeCard
     };
 };
 
@@ -135,29 +138,29 @@ const makeRequest = (path, data, callback = null) => {
     // promise style
     return axios_1.default.post(path, data).then(response => response.data).catch(error => error);
 };
-const payByPrime = (data, callback) => {
+exports.payByPrime = (data, callback) => {
     return makeRequest('/tpc/payment/pay-by-prime', data);
 };
-const payByToken = (data, callback) => {
+exports.payByToken = (data, callback) => {
     return makeRequest('/tpc/payment/pay-by-token', data);
 };
-const refund = (data, callback) => {
+exports.refund = (data, callback) => {
     return makeRequest('/tpc/transaction/refund', data);
 };
-const getRecords = (data, callback) => {
+exports.getRecords = (data, callback) => {
     return makeRequest('/tpc/transaction/query', data);
 };
-const getRecordHistory = (data, callback) => {
+exports.getRecordHistory = (data, callback) => {
     return makeRequest('/tpc/transaction/trade-history', data);
 };
-exports.default = () => {
-    return {
-        payByPrime,
-        payByToken,
-        refund,
-        getRecords,
-        getRecordHistory
-    };
+exports.capToday = (data, callback) => {
+    return makeRequest('/tpc/transaction/cap', data);
+};
+exports.bindCard = (data, callback) => {
+    return makeRequest('/tpc/card/bind', data);
+};
+exports.removeCard = (data, callback) => {
+    return makeRequest('/tpc/card/remove', data);
 };
 
 
