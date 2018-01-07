@@ -13,8 +13,8 @@ import {
     bindCard,
     removeCard
 } from './services/TapPayServices'
-const SANDBOX = "https://sandbox.tappayapis.com";
-const PROD = "https://prod.tappayapis.com";
+const SANDBOX = "https://sandbox.tappaysdk.com";
+const PROD = "https://prod.tappaysdk.com";
 
 const initialize = ({partner_key, env}: InitialData) => {
     config.partner_key = partner_key

@@ -2,9 +2,9 @@ import TapPay from '../src/index'
 import {
     should
 } from 'chai';
-const partner_key: string = "YOUR_PARTNER_KEY";
+const partner_key: string = "partner_6ID1DoDlaPrfHw6HBZsULfTYtDmWs0q0ZZGKMBpp4YICWBxgK97eK3RM";
 const env: string = "sandbox" // or production
-const MERCHANT_ID: string = "YOUR_MERCHANT_ID";
+const MERCHANT_ID: string = "GlobalTesting_CTBC";
 const TEST_PRIME: string = "test_3a2fb2b7e892b914a03c95dd4dd5dc7970c908df67a49527c0a648b2bc9";
 
 should()

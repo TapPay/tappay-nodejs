@@ -89,8 +89,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // .ts files
 const config_1 = __webpack_require__(0);
 const TapPayServices_1 = __webpack_require__(2);
-const SANDBOX = "https://sandbox.tappayapis.com";
-const PROD = "https://prod.tappayapis.com";
+const SANDBOX = "https://sandbox.tappaysdk.com";
+const PROD = "https://prod.tappaysdk.com";
 const initialize = ({ partner_key, env }) => {
     config_1.default.partner_key = partner_key;
     config_1.default.env = env;
