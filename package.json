@@ -24,7 +24,6 @@
   },
   "devDependencies": {
     "@types/chai": "^4.2.0",
-    "@types/jasmine": "^2.8.2",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.2",
     "@types/superagent": "^3.5.6",
