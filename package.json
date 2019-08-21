@@ -19,7 +19,7 @@
     "axios": "^0.17.1",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "pug": "^2.0.0-rc.2",
+    "pug": "^2.0.4",
     "superagent": "^3.5.2"
   },
   "devDependencies": {
