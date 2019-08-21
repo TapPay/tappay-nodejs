@@ -16,7 +16,7 @@ import {
     BindCardResponse,
     RemoveCardRequest,
     RemoveCardResponse,
-} from 'TapPayServices'
+} from '../types'
 
 // modules
 import axios, {AxiosError} from 'axios';
