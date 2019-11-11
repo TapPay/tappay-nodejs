@@ -1,3 +1,5 @@
+This is official SDK for TapPay (https://www.tappaysdk.com/).
+
 # Support Node Versions
 Node 4 or later is required
 ```
