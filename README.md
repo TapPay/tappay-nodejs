@@ -1,3 +1,9 @@
+# Deprecated - 20200824 updated
+
+This module is not longer maintained, please do not use this module.
+
+## README
+
 This is official SDK for TapPay (https://www.tappaysdk.com/).
 
 # Support Node Versions
