@@ -1,5 +1,5 @@
 // .d.ts files
-import {InitialData} from 'config';
+import {InitialData} from './types';
 
 // .ts files
 import config from './config'

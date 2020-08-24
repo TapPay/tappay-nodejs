@@ -1,4 +1,4 @@
-import {InitialData, Data} from 'config';
+import {InitialData, Data} from './types';
 
 let config: Data = {
     partner_key: '',
