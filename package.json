@@ -17,7 +17,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
     "@types/superagent": "^3.5.6",
-    "axios": "^0.17.1",
+    "axios": "^0.21.1",
     "body-parser": "^1.17.2",
     "chai": "^4.1.2",
     "express": "^4.15.3",
